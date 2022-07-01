@@ -18,4 +18,9 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @GetMapping("/test")
+    public String test(@Param("username") String username,@Param("password") String password){
+        return userService.countUser(username,password);
+    }
+
 }
