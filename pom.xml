@@ -12,6 +12,7 @@
         <module>dubbo-interface</module>
         <module>dubbo-service-provider</module>
         <module>dubbo-service-consumer</module>
+        <module>dubbo-api</module>
     </modules>
 
     <properties>
