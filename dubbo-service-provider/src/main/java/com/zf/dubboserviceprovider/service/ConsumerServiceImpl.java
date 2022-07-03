@@ -1,6 +1,8 @@
 package com.zf.dubboserviceprovider.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zf.dubboserviceprovider.common.BizCheck;
+import com.zf.dubboserviceprovider.common.ErrorCode;
 import com.zf.dubboserviceprovider.dao.ConsumerDao;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,7 @@ public class ConsumerServiceImpl implements UserService {
         QueryWrapper queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username",username);
         queryWrapper.eq("password",password);
-        if(consumerDao.exists(queryWrapper)){
-            return "登陆成功";
-        }else {
-            return "用户不存在";
-        }
-
+        BizCheck.falseThrowPrompt(consumerDao.exists(queryWrapper), ErrorCode.LOGIN_ERROR);
+        return "登陆成功";
     }
 }
