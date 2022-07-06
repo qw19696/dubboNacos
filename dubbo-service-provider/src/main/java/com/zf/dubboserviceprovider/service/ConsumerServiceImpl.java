@@ -11,7 +11,7 @@ import pojo.Consumer;
 import service.UserService;
 
 @Service
-@DubboService(version = "1.0")
+@DubboService(version = "1.0",timeout = 3000)
 public class ConsumerServiceImpl implements UserService {
 
     @Autowired
